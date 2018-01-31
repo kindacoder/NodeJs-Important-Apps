@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Files manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  </head>
+  <body>
+    <div class="row">
+        <div class="col s12 m6 l4">
+          <div class="card">
+            <div class="card-image">
+              <img class="avatar" style="width:100%; height:100px"src="https://i.imgur.com/h0VDl1F.jpg">
+              <span class="card-title">Files</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+            <div class="row">
+              <div class="col s6">
+                  <a href="/<%=  path %>" download>Download this file</a>
+              </div>
+              <div class="col s6">
+                  <a href="/<%=  path %>">View This File</a>
+
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col s12 m6 l4">
+            <div class="card">
+              <div class="card-image">
+                <img class="avatar" style="width:100%; height:100px"src="https://i.imgur.com/h0VDl1F.jpg">
+                <span class="card-title">Card Title</span>
+              </div>
+              <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                I am convenient because I require little markup to use effectively.</p>
+              </div>
+              <div class="card-action">
+              <div class="row">
+                <div class="col s6">
+                    <a href="/<%=  path %>" download>Download This fILE</a>
+                </div>
+                <div class="col s6">
+                    <a href="/<%=  path %>">View This FIle</a>
+
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m6 l4">
+              <div class="card">
+                <div class="card-image">
+                  <img class="avatar" style="width:100%; height:100px"src="https://i.imgur.com/h0VDl1F.jpg">
+                  <span class="card-title"><%= name%></span>
+                </div>
+                <div class="card-content">
+                  <p><%= description%></p>
+                </div>
+                <div class="card-action">
+                <div class="row">
+                  <div class="col s6">
+                      <a href="/<%=  path %>" download>Download This FIle</a>
+                  </div>
+                  <div class="col s6">
+                      <a href="/<%=  path %>">View This fILE</a>
+
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  </body>
+</html>
