@@ -64,6 +64,21 @@ app.post('/profile', urlencodedParser, function(req, res, next) {
 
 })
 
+app.get('/notes', function(req, res) {
+    //get the data from mongodb and show it to the view
+    Notes.find({}, function(err, data) {
+        ///get the data send it to the view
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(data);
+            res.render('notes', { data: data });
+        }
+
+    })
+
+})
+
 ///Listen to the port.
 app.listen(process.env.PORT || 3000, function() {
     console.log('Listening to port 3000');
