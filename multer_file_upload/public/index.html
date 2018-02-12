@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nodejs File upload</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
@@ -14,20 +15,51 @@
         <form action="/profile" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="password" name="name" type="text" class="validate">
-                    <label for="subject">Name</label>
+                    <select name="semester">
+                                  <option value="6">6th</option>
+                    </select>
+                    <label>Semester</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="year" name="year" type="text" class="validate">
-                    <label for="year">Year</label>
+                    <select name="branch">
+                                      <option value="computer science">Computer science</option>
+                                      <option value="information technology">information technology</option>
+                   </select>
+                    <label>Branch</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="description" class="materialize-textarea" name="description"></textarea>
-                    <label for="textarea1">Description</label>
+                    <select name="subject">
+                              <option value="Computer Networks">Computer Networks</option>
+                              <option value="Software Engineering">Software Engineering</option>
+                              <option value="Compiler Design">Compiler Design</option>
+                              <option value=" Parallel Algorithm "> Parallel Algorithm </option>
+                              <option value="Data Warehousing & Data Mining">Data Warehousing & Data Mining</option>
+                              <option value="Industrial Management">Industrial Management</option>
+                            </select>
+                    <label>Subject</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <select multiple name="unit">
+                                  <option value="1">Unit 1</option>
+                                  <option value="2">Unit 2</option>
+                                  <option value="3">Unit 3</option>
+                                  <option value="4">Unit 4</option>
+                                  <option value="5">Unit 5</option>
+                    </select>
+                    <label>Unit</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea maxlength="100" id="description" class="materialize-textarea" name="description"></textarea>
+                    <label for="textarea1">Description max-characters: 100</label>
                 </div>
             </div>
             <div class="file-field input-field">
@@ -47,6 +79,7 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="./js/script.js"></script>
 
 
 </body>

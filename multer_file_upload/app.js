@@ -9,8 +9,6 @@ mongoose.connect('mongodb://multer:multer@ds231758.mlab.com:31758/multer', () =>
     console.log('connected to database');
 })
 
-///loading the models
-
 const Notes = require('./models/notes');
 
 var jsonParser = bodyParser.json()
@@ -21,6 +19,8 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(express.static('public'));
 app.use('/uploads', express.static('uploads'))
     //set views-
+app.use('/favicon.ico', express.static('public/images/favicon.ico'));
+
 app.set('view engine', 'ejs');
 
 
@@ -42,19 +42,22 @@ app.post('/profile', urlencodedParser, function(req, res, next) {
         if (err) {
             console.log(err);
         } else {
+
             ///save into database
             const newNote = {
+                semester: req.body.semester,
+                subject: req.body.subject,
+                branch: req.body.branch,
+                unit: req.body.unit,
+                description: req.body.description,
                 filename: req.file.filename,
-                path: req.file.path,
-                year: req.body.year,
-                name: req.body.name,
-                description: req.body.description
+                path: req.file.path
             }
             new Notes(newNote)
                 .save()
                 .then(data => {
                     console.log(data);
-                    res.render('files', { fileName: req.file.filename, path: req.file.path, name: req.body.subject, year: req.body.year, description: req.body.description });
+                    res.redirect('/')
                 }).catch((error) => {
                     console.log(error);
                 })

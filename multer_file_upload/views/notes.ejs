@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <% data.forEach(function(note){ %>
+
+                <div class="col s12 m6 l4" id="card-upper">
+                    <div class="card" id="card">
+                        <div class="card-content" id="upper">
+                            <span class="chip red left card-title activator grey-text text-darken-4">Semester:<%= note.semester %>th </span>
+                            <a class="right chip blue" href="#">Unit:
+                              <%  note.unit.forEach(function(units){ %>
+                                <%= units %>,
+                              <%  })  %>
+                            </a>
+                        </div>
+                        <div class="card-image">
+                            <img id="img" src="images/svnotes-crop1.png">
+                            <span class="card-title" id="card-title"><i class="fa fa-book"></i> <%= note.subject %></span>
+                        </div>
+                        <div class="card-content description center-align">
+                            <p>
+                                <%= note.description %>
+                            </p>
+                        </div>
+                        <div class="card-content center-align" id="description">
+                            <div class="chip right-align center">
+                                <img class="right-align" src="images/svnotes-crop.png"> Ashutosh
+                            </div>
+                        </div>
+                        <div class="card-action" id="links">
+                            <a class="button btn main-button" href="../<%= note.filename %>" download><i class="fa fa-download"></i> Download</a>
+                            <a class="button btn right main-button" href="/uploads/<%= note.filename %>"><i class="fa fa-eye"></i> View notes</a>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+
+</html>

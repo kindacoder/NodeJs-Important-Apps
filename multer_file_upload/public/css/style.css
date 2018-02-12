@@ -1,0 +1,44 @@
+#card-title {
+    background-color: teal !important;
+    padding: 0.1px;
+}
+
+#upper {
+    margin-bottom: -10px;
+    margin-top: -20px;
+}
+
+#card-upper {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#img {
+    height: 70% !important;
+    width: 100% !important
+}
+
+#description {
+    margin-top: -40px;
+}
+
+#links {
+    margin-top: -20px;
+}
+
+.container {
+    width: 90%
+}
+
+.description {
+    height: 120px;
+}
+
+.main-button {
+    padding: 9px;
+    padding-top: 0px;
+}
+
+#card {
+    border: 2px solid rgb(204, 10, 10);
+}
