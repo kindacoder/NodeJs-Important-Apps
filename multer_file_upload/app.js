@@ -16,7 +16,7 @@ var jsonParser = bodyParser.json()
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-app.use(express.static('public'));
+app.use('/public',express.static('public'));
 app.use('/uploads', express.static('uploads'))
     //set views-
 app.use('/favicon.ico', express.static('public/images/favicon.ico'));
@@ -34,15 +34,35 @@ var storage = multer.diskStorage({
 
     }
 })
+app.get('/',(req,res)=>{
+  res.render('index');
+})
 
 var upload = multer({ storage: storage }).single('files')
 
 app.post('/profile', urlencodedParser, function(req, res, next) {
+
     upload(req, res, function(err) {
         if (err) {
             console.log(err);
-        } else {
+            res.render('index',{
+              msg:err
+            });
+            }
 
+
+      else if(req.file==undefined){
+          res.render('index',{
+            msg:'No file selected'
+          })
+        }
+
+else if(req.file==undefined){
+  res.render('index',{
+    msg:'Please upload a file'
+  })
+}
+       else{
             ///save into database
             const newNote = {
                 semester: req.body.semester,
@@ -67,20 +87,32 @@ app.post('/profile', urlencodedParser, function(req, res, next) {
 
 })
 
-app.get('/notes', function(req, res) {
-    //get the data from mongodb and show it to the view
-    Notes.find({}, function(err, data) {
-        ///get the data send it to the view
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(data);
-            res.render('notes', { data: data });
-        }
-
-    })
-
+// app.get('/notes', function(req, res) {
+//     //get the data from mongodb and show it to the view
+//     Notes.find({}, function(err, data) {
+//         ///get the data send it to the view
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log(data);
+//             res.render('notes', { data: data });
+//         }
+//
+//     })
+//
+// })
+app.get('/notes',function(req,res){
+  Notes.find().sort({date:-1}).exec(function(err,data){
+    if(err){
+      console.log(err);
+    }else{
+      console.log(data);
+      res.render('notes',{data:data});
+    }
+  })
 })
+
+
 
 ///Listen to the port.
 app.listen(process.env.PORT || 3000, function() {

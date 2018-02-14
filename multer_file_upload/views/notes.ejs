@@ -14,7 +14,6 @@
     <div class="container">
         <div class="row">
             <% data.forEach(function(note){ %>
-
                 <div class="col s12 m6 l4" id="card-upper">
                     <div class="card" id="card">
                         <div class="card-content" id="upper">
@@ -40,7 +39,7 @@
                             </div>
                         </div>
                         <div class="card-action" id="links">
-                            <a class="button btn main-button" href="../<%= note.filename %>" download><i class="fa fa-download"></i> Download</a>
+                            <a class="button btn main-button" href="../uploads/<%= note.filename %>" download><i class="fa fa-download"></i> Download</a>
                             <a class="button btn right main-button" href="/uploads/<%= note.filename %>"><i class="fa fa-eye"></i> View notes</a>
                         </div>
                     </div>
