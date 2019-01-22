@@ -5,7 +5,7 @@ var bodyParser = require('body-parser')
 var upload = multer({ dest: __dirname + '/uploads' })
 const mongoose = require('mongoose');
 const app = express();
-mongoose.connect('mongodb://multer:multer@ds231758.mlab.com:31758/multer', () => {
+mongoose.connect('mongodb://qq:qq@ds231758.mlab.com:31758/qq', () => {
     console.log('connected to database');
 })
 
